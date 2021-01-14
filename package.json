@@ -1,0 +1,24 @@
+{
+  "name": "link-shortener",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinuulong/link-shortener.git"
+  },
+  "keywords": [],
+  "author": "Kevin Long <kevinuulong@gmail.com> (https://kevinuulong.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevinuulong/link-shortener/issues"
+  },
+  "homepage": "https://github.com/kevinuulong/link-shortener#readme",
+  "dependencies": {
+    "airtable": "^0.10.1",
+    "dotenv": "^8.2.0"
+  }
+}
