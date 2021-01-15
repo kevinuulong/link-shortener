@@ -11,7 +11,7 @@
     <script>
         var splat = window.location.pathname.replace('/', '');
 
-        fetch(`${window.location.hostname}/api/redirect`, {
+        fetch('/api/redirect', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
