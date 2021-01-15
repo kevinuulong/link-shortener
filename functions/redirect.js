@@ -1,16 +1,27 @@
-require('dotenv').config()
-var Airtable = require('airtable');
-var base = new Airtable({ apiKey: `${process.env.AIRTABLE_API_KEY}` }).base(process.env.BASE);
+require('dotenv').config();
+const fetch = require('node-fetch');
 
 const handler = async (event) => {
     try {
         const payload = JSON.parse(event.body);
         var splat = payload.splat;
-        console.log(splat);
-        console.log(`DATA: ${redirect(splat)}`)
+
+        const url = await fetch(`https://api.airtable.com/v0/${process.env.BASE}/Redirects?maxRecords=1&filterByFormula={Splat}='${splat}'`, {
+            method: 'GET',
+            redirect: 'follow',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${process.env.AIRTABLE_API_KEY}`
+            }
+        })
+            .then(res => res.json())
+            .then(result => result.records[0])
+
+        const resultUrl = url.fields.Redirect;
+        console.log(resultUrl);
         return {
             statusCode: 200,
-            body: redirect(splat)
+            body: resultUrl
         }
     } catch (error) {
         return { statusCode: 500, body: error.toString() }
@@ -18,25 +29,3 @@ const handler = async (event) => {
 }
 
 module.exports = { handler }
-
-function redirect(splat) {
-    base('Redirects').select({
-        filterByFormula: `{Splat} = '${splat}'`
-    }).eachPage(function page(records, fetchNextPage) {
-        // This function (`page`) will get called for each page of records.
-
-        records.forEach(function (record) {
-            console.log('Retrieved', record.get('Splat'));
-            console.log(record.get('Redirect'));
-            return record.get('Redirect');
-        });
-
-        // To fetch the next page of records, call `fetchNextPage`.
-        // If there are more records, `page` will get called again.
-        // If there are no more records, `done` will get called.
-        fetchNextPage();
-
-    }, function done(err) {
-        if (err) { console.error(err); return; }
-    });
-}

@@ -6,7 +6,8 @@
     from="/api/*"
     to="/.netlify/functions/:splat"
     status=200
+    
 [[redirects]]
-    from="/5e9t1"
-    to="https://youtu.be/-gSqdlnEkGA"
+    from="/*"
+    to="/redirect.html"
     status=200
