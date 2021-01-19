@@ -1,0 +1,21 @@
+@import 'colors';
+
+body {
+    background-color: $secondaryLight;
+    color: $primaryTextLight;
+    padding: 45px;
+}
+
+.card {
+    width: 50vw;
+    background-color: $primaryLight;
+    border-radius: 35px;
+}
+
+#shorten {
+    height: 20vw;
+}
+
+#settings {
+    height: 25vw;
+}

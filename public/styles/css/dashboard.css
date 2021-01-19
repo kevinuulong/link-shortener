@@ -1,0 +1,20 @@
+body {
+  background-color: #F0F0F6;
+  color: #2B2C30;
+  padding: 45px;
+}
+
+.card {
+  width: 50vw;
+  background-color: #FFFFFF;
+  border-radius: 35px;
+}
+
+#shorten {
+  height: 20vw;
+}
+
+#settings {
+  height: 25vw;
+}
+/*# sourceMappingURL=dashboard.css.map */

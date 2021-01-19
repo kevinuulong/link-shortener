@@ -18,7 +18,7 @@ const handler = async (event) => {
             .then(result => result.records[0])
 
         const resultUrl = url.fields.Redirect;
-        console.log(resultUrl);
+
         return {
             statusCode: 200,
             body: resultUrl
