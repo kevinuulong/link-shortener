@@ -19,9 +19,12 @@ input {
     outline: none;
     border: none;
     @include font(400);
+    padding: 8px;
+}
+
+.fullWidthInput {
     height: 30px;
     width: 500px;
-    padding: 8px;
     margin-top: 23px;
     margin-bottom: 23px;
 }
@@ -31,10 +34,10 @@ input::placeholder {
 }
 
 .card {
-    // width: 50vw;
     background-color: $primaryLight;
     border-radius: $mediumRadius;
-    display: inline-block;
+    width: fit-content;
+    overflow: hidden;
 }
 
 .btn {
@@ -45,6 +48,11 @@ input::placeholder {
     padding: 8px;
     text-align: center;
     border-radius: $smallRadius;
+    cursor: pointer;
+}
+
+.icon {
+    display: inline-block;
     cursor: pointer;
 }
 
@@ -60,5 +68,71 @@ input::placeholder {
 }
 
 #settings {
-    
+    padding: 35px;
+    // width: 516px;
+    margin-top: 23px;
+    position: relative;
+}
+
+#settingsTabs {
+    width: 100%;
+}
+
+.settings.icon {
+    padding-right: 17px;
+}
+
+.optionsInput {
+    padding: 8px;
+    height: 20px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.optionsLabel {
+    @include font(600);
+    padding-top: 8px;
+    padding-right: 17px;
+}
+
+#settingsOptions {
+    width: 516px;
+}
+
+#urlDisplay {
+    width: calc(100% + 70px);
+    margin-top: 17px;
+    height: 35px;
+    margin-left: -35px;
+    margin-bottom: -35px;
+    background-color: $primaryAccent;
+    padding: 35px;
+    padding-right: 0;
+}
+
+#displayUrl {
+    width: 500px;
+    height: 20px;
+    padding: 8px;
+    background-color: $secondaryAccent;
+    border-radius: 8px;
+    position: relative;
+
+    p {
+        margin: 0;
+        @include font(600);
+        font-size: 16px;
+        color: $secondaryText;
+    }
+}
+
+#displayOptions {
+    position: absolute;
+    right: 17px;
+    top: 6px;
+
+    .icon {
+        padding-left: 8px;
+        color: $secondaryText;
+    }
 }
