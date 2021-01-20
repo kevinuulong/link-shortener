@@ -1,21 +1,64 @@
 @import 'colors';
+@import 'fonts';
+@import 'radii';
 
 body {
     background-color: $secondaryLight;
     color: $primaryTextLight;
-    padding: 45px;
+    padding: 17px;
+}
+
+h1 {
+    @include font(600);
+    margin: 0;
+}
+
+input {
+    background: #F0F0F6;
+    border-radius: $smallRadius;
+    outline: none;
+    border: none;
+    @include font(400);
+    height: 30px;
+    width: 500px;
+    padding: 8px;
+    margin-top: 23px;
+    margin-bottom: 23px;
+}
+
+input::placeholder {
+    color: $placeholderTextLight;
 }
 
 .card {
-    width: 50vw;
+    // width: 50vw;
     background-color: $primaryLight;
-    border-radius: 35px;
+    border-radius: $mediumRadius;
+    display: inline-block;
+}
+
+.btn {
+    background-color: $primaryAccent;
+    color: $secondaryText;
+    @include font(600);
+    width: 135px;
+    padding: 8px;
+    text-align: center;
+    border-radius: $smallRadius;
+    cursor: pointer;
+}
+
+#shortenBtn {
+    position: absolute;
+    right: 35px;
 }
 
 #shorten {
-    height: 20vw;
+    padding: 35px;
+    height: 172px;
+    position: relative;
 }
 
 #settings {
-    height: 25vw;
+    
 }

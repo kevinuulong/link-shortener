@@ -1,20 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 body {
   background-color: #F0F0F6;
   color: #2B2C30;
-  padding: 45px;
+  padding: 17px;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  margin: 0;
+}
+
+input {
+  background: #F0F0F6;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  height: 30px;
+  width: 500px;
+  padding: 8px;
+  margin-top: 23px;
+  margin-bottom: 23px;
+}
+
+input::-webkit-input-placeholder {
+  color: #2B2C307F;
+}
+
+input:-ms-input-placeholder {
+  color: #2B2C307F;
+}
+
+input::-ms-input-placeholder {
+  color: #2B2C307F;
+}
+
+input::placeholder {
+  color: #2B2C307F;
 }
 
 .card {
-  width: 50vw;
   background-color: #FFFFFF;
-  border-radius: 35px;
+  border-radius: 17px;
+  display: inline-block;
+}
+
+.btn {
+  background-color: #2F80ED;
+  color: #F0F0F6;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  width: 135px;
+  padding: 8px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#shortenBtn {
+  position: absolute;
+  right: 35px;
 }
 
 #shorten {
-  height: 20vw;
-}
-
-#settings {
-  height: 25vw;
+  padding: 35px;
+  height: 172px;
+  position: relative;
 }
 /*# sourceMappingURL=dashboard.css.map */
