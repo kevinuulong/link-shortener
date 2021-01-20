@@ -121,6 +121,8 @@ input::placeholder {
   margin-bottom: -35px;
   background-color: #2F80ED;
   padding: 35px;
+  padding-top: 23px;
+  padding-bottom: 23px;
   padding-right: 0;
 }
 
@@ -150,5 +152,101 @@ input::placeholder {
 #displayOptions .icon {
   padding-left: 8px;
   color: #F0F0F6;
+}
+
+#links {
+  width: 586px;
+  height: 100vh;
+  margin-top: 23px;
+}
+
+@media (min-width: 1137px) {
+  #links {
+    position: fixed;
+    bottom: 0;
+    right: 23px;
+    height: calc(100vh - 25px);
+    width: calc(100vw - 655px);
+    border-radius: 35px 35px 0 0;
+  }
+}
+
+#links #logo {
+  width: 50px;
+  padding: 23px;
+  padding-right: 8px;
+  vertical-align: middle;
+}
+
+#links #listTop {
+  width: 100%;
+  background-color: #2F80ED;
+}
+
+#links #listTop .icon {
+  color: #F0F0F6;
+  -webkit-transform: translateY(12px);
+          transform: translateY(12px);
+}
+
+#links #listTop p {
+  display: inline-block;
+  padding: 23px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #F0F0F6;
+  font-size: 20px;
+  margin: 0;
+  -webkit-transform: translateY(6px);
+          transform: translateY(6px);
+}
+
+.link {
+  width: 100%;
+  padding: 17px;
+  padding-bottom: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  border-bottom: #2B2C307F 1px solid;
+}
+
+.link .slug {
+  padding-left: 17px;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.link .icon {
+  padding-left: 17px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-transform: translateY(14px);
+          transform: translateY(14px);
+}
+
+.link .target {
+  width: calc(100% - 150px);
+  padding-left: 17px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.link:hover {
+  background-color: #f0f0f674;
+}
+
+#linkList {
+  overflow-y: scroll;
 }
 /*# sourceMappingURL=dashboard.css.map */

@@ -107,6 +107,8 @@ input::placeholder {
     margin-bottom: -35px;
     background-color: $primaryAccent;
     padding: 35px;
+    padding-top: 23px;
+    padding-bottom: 23px;
     padding-right: 0;
 }
 
@@ -135,4 +137,88 @@ input::placeholder {
         padding-left: 8px;
         color: $secondaryText;
     }
+}
+
+#links {
+    width: 586px;
+    height: 100vh;
+    margin-top: 23px;
+
+    @media (min-width: 1137px) {
+        position: fixed;
+        bottom: 0;
+        right: 23px;
+        height: calc(100vh - 25px);
+        width: calc(100vw - 655px);
+        border-radius: 35px 35px 0 0;
+    }
+
+    #logo {
+        width: 50px;
+        padding: 23px;
+        padding-right: 8px;
+        vertical-align: middle;
+    }
+
+    #listTop {
+        width: 100%;
+        background-color: $primaryAccent;
+
+        .icon {
+            color: $secondaryText;
+            transform: translateY(12px);
+        }
+
+        p {
+            display: inline-block;
+            padding: 23px;
+            @include font(600);
+            color: $secondaryText;
+            font-size: 20px;
+            margin: 0;
+            transform: translateY(6px);
+        }
+    }
+}
+
+.link {
+    width: 100%;
+	padding: 17px;
+	padding-bottom: 14px;
+	@include font(400);
+	
+	display: flex;
+	justify-content: center;
+
+	cursor: pointer;
+
+    .slug {
+		padding-left: 17px;
+		text-align: center;
+		width: fit-content;
+    }
+
+    .icon {
+		padding-left: 17px;
+		width: fit-content;
+		transform: translateY(14px);
+    }
+
+    .target {
+        width: calc(100% - 150px);
+        padding-left: 17px;
+        white-space: nowrap;
+        overflow-x: hidden;
+  		text-overflow: ellipsis;
+	}
+	
+	border-bottom: $placeholderTextLight 1px solid;
+}
+
+.link:hover {
+	background-color: #f0f0f674;
+}
+
+#linkList {
+	overflow-y: scroll;
 }
