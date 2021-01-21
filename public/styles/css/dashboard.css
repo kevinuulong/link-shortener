@@ -29,19 +29,19 @@ input {
 }
 
 input::-webkit-input-placeholder {
-  color: #2B2C307F;
+  color: #2B2C3080;
 }
 
 input:-ms-input-placeholder {
-  color: #2B2C307F;
+  color: #2B2C3080;
 }
 
 input::-ms-input-placeholder {
-  color: #2B2C307F;
+  color: #2B2C3080;
 }
 
 input::placeholder {
-  color: #2B2C307F;
+  color: #2B2C3080;
 }
 
 .card {
@@ -167,7 +167,7 @@ input::placeholder {
     right: 23px;
     height: calc(100vh - 25px);
     width: calc(100vw - 655px);
-    border-radius: 35px 35px 0 0;
+    border-radius: 17px 17px 0 0;
   }
 }
 
@@ -211,7 +211,7 @@ input::placeholder {
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
-  border-bottom: #2B2C307F 1px solid;
+  border-bottom: #2B2C3080 1px solid;
 }
 
 .link .slug {
@@ -255,7 +255,7 @@ input::placeholder {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2B2C307F;
+  background: #2B2C3080;
   border-radius: 5px;
 }
 
