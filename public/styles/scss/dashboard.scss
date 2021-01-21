@@ -69,7 +69,6 @@ input::placeholder {
 
 #settings {
     padding: 35px;
-    // width: 516px;
     margin-top: 23px;
     position: relative;
 }
@@ -182,13 +181,12 @@ input::placeholder {
 }
 
 .link {
-    width: 100%;
+    width: calc(100% - 35px);
 	padding: 17px;
 	padding-bottom: 14px;
 	@include font(400);
 	
 	display: flex;
-	justify-content: center;
 
 	cursor: pointer;
 
@@ -216,9 +214,116 @@ input::placeholder {
 }
 
 .link:hover {
-	background-color: #f0f0f674;
+	background-color: #f0f0f6b6;
 }
 
 #linkList {
-	overflow-y: scroll;
+    overflow-y: scroll;
+    height: calc(100% - 100px);
+}
+
+::-webkit-scrollbar {
+    background: $primaryLight;
+    width: 10px;
+    margin: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $placeholderTextLight;
+    border-radius: 5px;
+}
+
+@media (max-width: 1137px) {
+    .card {
+        margin: auto;
+    }
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 0;
+        padding-top: 17px;
+    }
+
+    .card {
+        margin: auto;
+    }
+
+    .fullWidthInput {
+        width: 280px;
+    }
+
+    #settingsOptions {
+        width: 296px;
+    }
+
+    #urlDisplay {
+        width: calc(100% + 70px);
+    }
+    
+    #displayUrl {
+        width: 280px;
+    }
+
+    #displayLink {
+        width: calc(100% - 75px);
+        overflow: auto;
+    }
+
+    #displayLink::-webkit-scrollbar {
+        background-color: transparent;
+        width: 3px;
+    }
+    
+    #displayLink::-webkit-scrollbar-thumb {
+        border-radius: 2.5px;
+        background-color: $secondaryLight;
+    }
+
+    #links {
+        width: 366px;
+        padding-bottom: 0;
+    
+        #logo {
+            width: 25px;
+            padding: 17px;
+            padding-right: 3px;
+            vertical-align: middle;
+        }
+    
+        #listTop {
+
+            .icon {
+                transform: translateY(10px);
+            }
+    
+            p {
+                font-size: 16px;
+                transform: translateY(4px);
+                padding-left: 6px;
+            }
+        }
+
+        .link {
+            width: calc(100% - 35px);
+            padding: 8px;
+            padding-left: 17px;
+            padding-right: 17px;
+            padding-bottom: 7px;
+        
+            .slug {
+                padding-left: 8px;
+            }
+        
+            .icon {
+                padding-left: 8px;
+            }
+        
+            .target {
+                width: calc(100% - 100px);
+                padding-left: 8px;
+            }
+        }
+    }
 }

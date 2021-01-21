@@ -202,7 +202,7 @@ input::placeholder {
 }
 
 .link {
-  width: 100%;
+  width: calc(100% - 35px);
   padding: 17px;
   padding-bottom: 14px;
   font-family: 'Montserrat', sans-serif;
@@ -210,9 +210,6 @@ input::placeholder {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   cursor: pointer;
   border-bottom: #2B2C307F 1px solid;
 }
@@ -243,10 +240,99 @@ input::placeholder {
 }
 
 .link:hover {
-  background-color: #f0f0f674;
+  background-color: #f0f0f6b6;
 }
 
 #linkList {
   overflow-y: scroll;
+  height: calc(100% - 100px);
+}
+
+::-webkit-scrollbar {
+  background: #FFFFFF;
+  width: 10px;
+  margin: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2B2C307F;
+  border-radius: 5px;
+}
+
+@media (max-width: 1137px) {
+  .card {
+    margin: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0;
+    padding-top: 17px;
+  }
+  .card {
+    margin: auto;
+  }
+  .fullWidthInput {
+    width: 280px;
+  }
+  #settingsOptions {
+    width: 296px;
+  }
+  #urlDisplay {
+    width: calc(100% + 70px);
+  }
+  #displayUrl {
+    width: 280px;
+  }
+  #displayLink {
+    width: calc(100% - 75px);
+    overflow: auto;
+  }
+  #displayLink::-webkit-scrollbar {
+    background-color: transparent;
+    width: 3px;
+  }
+  #displayLink::-webkit-scrollbar-thumb {
+    border-radius: 2.5px;
+    background-color: #F0F0F6;
+  }
+  #links {
+    width: 366px;
+    padding-bottom: 0;
+  }
+  #links #logo {
+    width: 25px;
+    padding: 17px;
+    padding-right: 3px;
+    vertical-align: middle;
+  }
+  #links #listTop .icon {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+  }
+  #links #listTop p {
+    font-size: 16px;
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+    padding-left: 6px;
+  }
+  #links .link {
+    width: calc(100% - 35px);
+    padding: 8px;
+    padding-left: 17px;
+    padding-right: 17px;
+    padding-bottom: 7px;
+  }
+  #links .link .slug {
+    padding-left: 8px;
+  }
+  #links .link .icon {
+    padding-left: 8px;
+  }
+  #links .link .target {
+    width: calc(100% - 100px);
+    padding-left: 8px;
+  }
 }
 /*# sourceMappingURL=dashboard.css.map */
