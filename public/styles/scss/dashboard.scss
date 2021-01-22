@@ -33,6 +33,10 @@ input::placeholder {
     color: $placeholderTextLight;
 }
 
+input:focus {
+    box-shadow: inset 0px 0px 0px 2px $primaryAccent;
+}
+
 .card {
     background-color: $primaryLight;
     border-radius: $mediumRadius;

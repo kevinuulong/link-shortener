@@ -44,6 +44,11 @@ input::placeholder {
   color: #2B2C3080;
 }
 
+input:focus {
+  -webkit-box-shadow: inset 0px 0px 0px 2px #2F80ED;
+          box-shadow: inset 0px 0px 0px 2px #2F80ED;
+}
+
 .card {
   background-color: #FFFFFF;
   border-radius: 17px;

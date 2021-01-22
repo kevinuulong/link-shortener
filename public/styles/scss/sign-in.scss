@@ -23,7 +23,7 @@ h1 {
     padding: 35px;
 }
 
-p {
+p, #explainationText{
     @include font(400);
     width: 350px;
     color: $primaryTextLight;
@@ -37,7 +37,8 @@ textarea {
     outline: none;
     border: none;
     @include font(400);
-    padding: 8px;
+    padding: 17px;
+    font-size: 16px;
     resize: none;
 }
 
@@ -52,19 +53,74 @@ textarea::placeholder {
     color: $placeholderTextLight;
 }
 
+textarea:focus {
+    box-shadow: inset 0px 0px 0px 2px $primaryAccent;
+}
+
 .btn {
     background-color: $primaryAccent;
     color: $secondaryText;
     @include font(600);
-    width: calc(100% - 16px);
-    padding: 8px;
+    width: calc(100% - 35px);
+    padding: 17px;
     text-align: center;
     border-radius: $smallRadius;
     cursor: pointer;
+    font-size: 18px;
 }
 
 .icon {
     vertical-align: middle;
-    width: 10px;
 }
 
+#signInIcon {
+    padding-left: 8px;
+}
+
+#helpIcon {
+    color: $primaryTextLight;
+    font-size: 16px;
+    padding-left: 6px;
+    cursor: help;
+    user-select: none;
+}
+
+.tooltiptext {
+    visibility: hidden;
+	position: absolute;
+	background: $primaryLight;
+    border: 2px solid $primaryAccent;
+    border-radius: 8px;
+    padding: 8px;
+    z-index: 100;
+    transform: translate(29px, -17px);
+    font-size: 12px;
+    user-select: none;
+}
+.tooltiptext:after, .tooltiptext:before {
+	bottom: 100%;
+	left: 10%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.tooltiptext:after {
+	border-color: rgba(240, 240, 246, 0);
+	border-bottom-color: $primaryLight;
+	border-width: 5px;
+    margin-left: -5px;
+}
+.tooltiptext:before {
+	border-color: rgba(47, 128, 237, 0);
+	border-bottom-color: $primaryAccent;
+	border-width: 8px;
+    margin-left: -8px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
