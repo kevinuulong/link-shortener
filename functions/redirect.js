@@ -16,6 +16,12 @@ const handler = async (event) => {
         })
             .then(res => res.json())
             .then(result => result.records[0])
+        
+        // const thing = await fetch(whatever)
+        // const res = url.json()
+        // const thing = res.records[0]
+        // console.log(thing, res);
+
 
         const resultUrl = url.fields.Redirect;
 

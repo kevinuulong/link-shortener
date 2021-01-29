@@ -1,6 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 body {
   background-color: #F0F0F6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 h1 {
@@ -45,7 +56,7 @@ textarea {
 }
 
 #authKey {
-  height: 250px;
+  height: 200px;
   width: 350px;
   margin-top: 23px;
   margin-bottom: 23px;
@@ -148,5 +159,37 @@ textarea:focus {
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+@media (max-width: 600px) {
+  #authKey {
+    height: 200px;
+    width: 280px;
+  }
+  p, #explainationText {
+    width: 280px;
+  }
+  .btn {
+    width: 280px;
+  }
+  .tooltiptext:after, .tooltiptext:before {
+    left: 40.5%;
+  }
+}
+
+@media (max-width: 350px) {
+  #authKey {
+    height: 200px;
+    width: 220px;
+  }
+  p, #explainationText {
+    width: 220px;
+  }
+  .btn {
+    width: 220px;
+  }
+  .tooltiptext:after, .tooltiptext:before {
+    left: 74.5%;
+  }
 }
 /*# sourceMappingURL=sign-in.css.map */
