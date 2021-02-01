@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 const handler = async (event) => {
     try {
         const payload = JSON.parse(event.body);
+        console.log(payload);
         var splat = payload.splat;
 
         const url = await fetch(`https://api.airtable.com/v0/${process.env.BASE}/Redirects?maxRecords=1&filterByFormula={Splat}='${splat}'`, {

@@ -8,6 +8,11 @@
     status=200
     
 [[redirects]]
+    from="/sign-in"
+    to="/sign-in"
+    status=200
+    
+[[redirects]]
     from="/*"
     to="/redirect.html"
     status=200
