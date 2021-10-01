@@ -9,5 +9,5 @@
     
 [[redirects]]
     from="/*"
-    to="/redirect.html"
+    to="/.netlify/functions/redirect/:splat"
     status=200

@@ -1,10 +1,20 @@
 require('dotenv').config();
 const fetch = require('node-fetch');
 
+function html(redirect) {
+    return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Redirecting...</title></head>
+    <body>
+        <script>
+            window.location = '${redirect}';
+        </script>
+    </body>
+    </html>`;
+}
+
 const handler = async (event) => {
     try {
-        const payload = JSON.parse(event.body);
-        var splat = payload.splat;
+        const path = event.path;
+        const splat = path.replace(/\//,'');
 
         const url = await fetch(`https://api.airtable.com/v0/${process.env.BASE}/Redirects?maxRecords=1&filterByFormula={Splat}='${splat}'`, {
             method: 'GET',
@@ -21,7 +31,10 @@ const handler = async (event) => {
         console.log(resultUrl);
         return {
             statusCode: 200,
-            body: resultUrl
+            body: html(resultUrl),
+            headers: {
+                'Content-Type': 'text/html'
+            }
         }
     } catch (error) {
         return { statusCode: 500, body: error.toString() }
