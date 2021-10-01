@@ -1,6 +1,5 @@
 [build]
     functions="functions"
-    publish = "public"
 
 [[redirects]]
     from="/api/*"
@@ -9,5 +8,5 @@
     
 [[redirects]]
     from="/*"
-    to="/redirect.html"
+    to="/.netlify/functions/redirect/:splat"
     status=200
