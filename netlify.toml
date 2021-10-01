@@ -7,6 +7,11 @@
     status=200
     
 [[redirects]]
+    from="/sign-in"
+    to="/sign-in"
+    status=200
+    
+[[redirects]]
     from="/*"
     to="/.netlify/functions/redirect/:splat"
     status=200

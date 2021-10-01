@@ -1,0 +1,333 @@
+@import 'colors';
+@import 'fonts';
+@import 'radii';
+
+body {
+    background-color: $secondaryLight;
+    color: $primaryTextLight;
+    padding: 17px;
+}
+
+h1 {
+    @include font(600);
+    margin: 0;
+}
+
+input {
+    background: #F0F0F6;
+    border-radius: $smallRadius;
+    outline: none;
+    border: none;
+    @include font(400);
+    padding: 8px;
+}
+
+.fullWidthInput {
+    height: 30px;
+    width: 500px;
+    margin-top: 23px;
+    margin-bottom: 23px;
+}
+
+input::placeholder {
+    color: $placeholderTextLight;
+}
+
+input:focus {
+    box-shadow: inset 0px 0px 0px 2px $primaryAccent;
+}
+
+.card {
+    background-color: $primaryLight;
+    border-radius: $mediumRadius;
+    width: fit-content;
+    overflow: hidden;
+}
+
+.btn {
+    background-color: $primaryAccent;
+    color: $secondaryText;
+    @include font(600);
+    width: 135px;
+    padding: 8px;
+    text-align: center;
+    border-radius: $smallRadius;
+    cursor: pointer;
+}
+
+.icon {
+    display: inline-block;
+    cursor: pointer;
+}
+
+#shortenBtn {
+    position: absolute;
+    right: 35px;
+}
+
+#shorten {
+    padding: 35px;
+    height: 172px;
+    position: relative;
+}
+
+#settings {
+    padding: 35px;
+    margin-top: 23px;
+    position: relative;
+}
+
+#settingsTabs {
+    width: 100%;
+}
+
+.settings.icon {
+    padding-right: 17px;
+}
+
+.optionsInput {
+    padding: 8px;
+    height: 20px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.optionsLabel {
+    @include font(600);
+    padding-top: 8px;
+    padding-right: 17px;
+}
+
+#settingsOptions {
+    width: 516px;
+}
+
+#urlDisplay {
+    width: calc(100% + 70px);
+    margin-top: 17px;
+    height: 35px;
+    margin-left: -35px;
+    margin-bottom: -35px;
+    background-color: $primaryAccent;
+    padding: 35px;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    padding-right: 0;
+}
+
+#displayUrl {
+    width: 500px;
+    height: 20px;
+    padding: 8px;
+    background-color: $secondaryAccent;
+    border-radius: 8px;
+    position: relative;
+
+    p {
+        margin: 0;
+        @include font(600);
+        font-size: 16px;
+        color: $secondaryText;
+    }
+}
+
+#displayOptions {
+    position: absolute;
+    right: 17px;
+    top: 6px;
+
+    .icon {
+        padding-left: 8px;
+        color: $secondaryText;
+    }
+}
+
+#links {
+    width: 586px;
+    height: 100vh;
+    margin-top: 23px;
+
+    @media (min-width: 1137px) {
+        position: fixed;
+        bottom: 0;
+        right: 23px;
+        height: calc(100vh - 25px);
+        width: calc(100vw - 655px);
+        border-radius: 17px 17px 0 0;
+    }
+
+    #logo {
+        width: 50px;
+        padding: 23px;
+        padding-right: 8px;
+        vertical-align: middle;
+    }
+
+    #listTop {
+        width: 100%;
+        background-color: $primaryAccent;
+
+        .icon {
+            color: $secondaryText;
+            transform: translateY(12px);
+        }
+
+        p {
+            display: inline-block;
+            padding: 23px;
+            @include font(600);
+            color: $secondaryText;
+            font-size: 20px;
+            margin: 0;
+            transform: translateY(6px);
+        }
+    }
+}
+
+.link {
+    width: calc(100% - 35px);
+	padding: 17px;
+	padding-bottom: 14px;
+	@include font(400);
+	
+	display: flex;
+
+	cursor: pointer;
+
+    .slug {
+		padding-left: 17px;
+		text-align: center;
+		width: fit-content;
+    }
+
+    .icon {
+		padding-left: 17px;
+		width: fit-content;
+		transform: translateY(14px);
+    }
+
+    .target {
+        width: calc(100% - 150px);
+        padding-left: 17px;
+        white-space: nowrap;
+        overflow-x: hidden;
+  		text-overflow: ellipsis;
+	}
+	
+	border-bottom: $placeholderTextLight 1px solid;
+}
+
+.link:hover {
+	background-color: #f0f0f6b6;
+}
+
+#linkList {
+    overflow-y: scroll;
+    height: calc(100% - 100px);
+}
+
+::-webkit-scrollbar {
+    background: $primaryLight;
+    width: 10px;
+    margin: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $placeholderTextLight;
+    border-radius: 5px;
+}
+
+@media (max-width: 1137px) {
+    .card {
+        margin: auto;
+    }
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 0;
+        padding-top: 17px;
+    }
+
+    .card {
+        margin: auto;
+    }
+
+    .fullWidthInput {
+        width: 280px;
+    }
+
+    #settingsOptions {
+        width: 296px;
+    }
+
+    #urlDisplay {
+        width: calc(100% + 70px);
+    }
+    
+    #displayUrl {
+        width: 280px;
+    }
+
+    #displayLink {
+        width: calc(100% - 75px);
+        overflow: auto;
+    }
+
+    #displayLink::-webkit-scrollbar {
+        background-color: transparent;
+        width: 3px;
+    }
+    
+    #displayLink::-webkit-scrollbar-thumb {
+        border-radius: 2.5px;
+        background-color: $secondaryLight;
+    }
+
+    #links {
+        width: 366px;
+        padding-bottom: 0;
+    
+        #logo {
+            width: 25px;
+            padding: 17px;
+            padding-right: 3px;
+            vertical-align: middle;
+        }
+    
+        #listTop {
+
+            .icon {
+                transform: translateY(10px);
+            }
+    
+            p {
+                font-size: 16px;
+                transform: translateY(4px);
+                padding-left: 6px;
+            }
+        }
+
+        .link {
+            width: calc(100% - 35px);
+            padding: 8px;
+            padding-left: 17px;
+            padding-right: 17px;
+            padding-bottom: 7px;
+        
+            .slug {
+                padding-left: 8px;
+            }
+        
+            .icon {
+                padding-left: 8px;
+            }
+        
+            .target {
+                width: calc(100% - 100px);
+                padding-left: 8px;
+            }
+        }
+    }
+}
