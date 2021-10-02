@@ -22,11 +22,14 @@ document.querySelector("#authKey").addEventListener('keydown', (e) => {
 })
 
 
-function signIn() {
+async function signIn() {
     var authKey = document.querySelector("#authKey").value;
     document.querySelector("#authKey").value = '';
     if (authKey != "") {
         document.cookie = `authToken=${authKey};path=/`;
-        console.log(authenticate());
+        if (await authenticate()) {
+            console.log("Hello, authentication!");
+            window.location = '/p/dashboard';
+        }
     }
 }
