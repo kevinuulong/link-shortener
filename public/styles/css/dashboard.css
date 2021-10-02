@@ -12,7 +12,7 @@ h1 {
 }
 
 input {
-  background: #F0F0F6;
+  background: #f0f0f6;
   border-radius: 8px;
   outline: none;
   border: none;
@@ -242,6 +242,19 @@ input:focus {
   white-space: nowrap;
   overflow-x: hidden;
   text-overflow: ellipsis;
+  display: block;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
+  -webkit-margin-after: 1em;
+          margin-block-end: 1em;
+  -webkit-margin-start: 0px;
+          margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+}
+
+a:link, a:visited {
+  color: #2F80ED;
 }
 
 .link:hover {

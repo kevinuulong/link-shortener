@@ -37,9 +37,9 @@ const handler = async (event) => {
         }
     } catch (error) {
         if (event.headers.cookie) {
-            return { statusCode: 500, body: html('/p/dashboard')/*error.toString()*/ }
+            return { statusCode: 404, body: html('/p/dashboard')/*error.toString()*/ }
         }
-        return { statusCode: 500, body: html('/p/sign-in')/*error.toString()*/ }
+        return { statusCode: 404, body: html('/p/sign-in')/*error.toString()*/ }
     }
 }
 
