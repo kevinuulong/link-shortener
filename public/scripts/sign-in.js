@@ -2,14 +2,13 @@ import { authenticate } from "./authenticate.js";
 
 if (document.cookie != "") {
     console.log("Hello, cookies!");
-    // var authed = async () => await authenticate();
-    // console.log(async () => await authenticate());
     const authed = async () => {
         if (await authenticate()) {
-            console.log("Hello, authentication!")
+            console.log("Hello, authentication!");
+            window.location = '/p/dashboard';
         }
     }
-    console.log(authed)
+    authed();
 } else {
     console.log("Hello, world!");
 }
@@ -27,10 +26,7 @@ function signIn() {
     var authKey = document.querySelector("#authKey").value;
     document.querySelector("#authKey").value = '';
     if (authKey != "") {
-        document.cookie = `authToken=${authKey}`;
+        document.cookie = `authToken=${authKey};path=/`;
         console.log(authenticate());
     }
 }
-
-// console.log(getCookie('authToken'));
-// console.log(getCookie('_ga'));

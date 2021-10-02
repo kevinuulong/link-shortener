@@ -1,5 +1,6 @@
 [build]
     functions="functions"
+    public="public"
 
 [[redirects]]
     from="/api/*"
@@ -7,8 +8,8 @@
     status=200
     
 [[redirects]]
-    from="/sign-in"
-    to="/sign-in"
+    from="/p/*"
+    to="/public/:splat"
     status=200
     
 [[redirects]]

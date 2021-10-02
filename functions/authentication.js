@@ -3,6 +3,7 @@ const fetch = require('node-fetch');
 
 const handler = async (event) => {
     try {
+        console.log(event);
         const authToken = parseCookie(event.headers.cookie, "authToken");
 
         const checkValidity = await fetch(`https://api.airtable.com/v0/${process.env.BASE}/Tokens?maxRecords=1&filterByFormula={authToken}='${authToken}'`, {
