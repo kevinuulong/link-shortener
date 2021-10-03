@@ -23,6 +23,38 @@ async function getLinks() {
     return links;
 }
 
+async function shorten(link, slug = "") {
+    const links = await fetch('/api/shorten', {
+        method: 'POST',
+        body: JSON.stringify({
+            redirect: link
+        })
+    })
+        .then(res => res.text())
+    return links;
+}
+
+document.getElementById("shortenBtn").addEventListener('click', async () => {
+    let url = document.getElementById("shortenUrl").value;
+    let short = await shorten(url);
+    let displayLink = document.getElementById("displayLink");
+    navigator.clipboard.writeText(short)
+    .then(toast("Short link successfully copied to your clipboard!"))
+    displayLink.textContent = short;
+})
+
+function toast(message) {
+    let toast = document.createElement('p');
+    toast.classList.add('toast');
+    let toastMessage = document.createTextNode(message);
+    toast.appendChild(toastMessage);
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, toast.textContent.length * 75);
+}
+
 function populateLinks(data) {
     let linkList = document.getElementById("linkList");
 

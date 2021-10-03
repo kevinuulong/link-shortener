@@ -17,15 +17,15 @@ const handler = async (event) => {
             .then(result => result.records[0])
             .catch(err => console.error(err))
 
-        const validToken = checkValidity ? checkValidity.fields.Active: false;
+        const validToken = checkValidity.fields.Active ? checkValidity.fields.Active: false;
 
         return {
             statusCode: 200,
-            body: validToken ? validToken.toString() : validToken
+            body: validToken.toString()
         }
     } catch (error) {
         console.log(error);
-        return { statusCode: 500, body: error.toString() }
+        return { statusCode: 200, body: "false" }
     }
 }
 

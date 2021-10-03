@@ -227,6 +227,25 @@ a:link, a:visited {
     color: $primaryAccent;
 }
 
+.toast {
+	background-color: $primaryTextDark;
+	color: $primaryLight;
+	position: absolute;
+	bottom: 28px;
+	margin: auto;
+	min-height: 56px;
+	padding-left: 14px;
+	padding-right: 14px;
+	border-radius: 14px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	align-items: center;
+	z-index: 100;
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+}
+
 .link:hover {
 	background-color: #f0f0f6b6;
 }

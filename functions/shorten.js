@@ -1,33 +1,36 @@
 require('dotenv').config();
 const fetch = require('node-fetch');
 const url = require('url');
+const { nanoid } = require('nanoid');
 
 const handler = async (event) => {
+    event.body = JSON.parse(event.body);
     if (await authenticate(event)) {
         try {
-            const records = await fetch(`https://api.airtable.com/v0/${process.env.BASE}/Redirects`, {
-                method: 'GET',
+            const short = await fetch(`https://api.airtable.com/v0/${process.env.BASE}/Redirects`, {
+                method: 'POST',
                 redirect: 'follow',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${process.env.AIRTABLE_API_KEY}`
-                }
+                },
+                body: JSON.stringify({
+                    "fields": {
+                        "Splat": event.body.splat ? event.body.splat : nanoid(5),
+                        "Redirect": event.body.redirect
+                    }
+                })
             })
                 .then(res => res.json())
-                .then(result => result.records)
-
-            let links = {};
-
-            records.forEach(record => {
-                links[record.fields.Splat] = record.fields.Redirect;
-            });
+            console.log(short);
+            
 
             return {
                 statusCode: 200,
-                body: JSON.stringify(links),
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                body: `https://${process.env.SHORT}/${short.fields.Splat}`
             }
         } catch (error) {
             return { statusCode: 500, body: error.toString() }
@@ -40,6 +43,7 @@ const handler = async (event) => {
 
 async function authenticate(event) {
     let destination = url.parse(event.rawUrl, true);
+    console.log(event.headers,destination);
     const authed = await fetch(`${destination.protocol}//${destination.host}/api/authentication`, {
         headers: {
             cookie: event.headers.cookie
