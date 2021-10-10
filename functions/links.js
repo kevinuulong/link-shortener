@@ -5,7 +5,7 @@ const url = require('url');
 const handler = async (event) => {
     if (await authenticate(event)) {
         try {
-            const records = await fetch(`https://api.airtable.com/v0/${process.env.BASE}/Redirects`, {
+            const records = await fetch(`https://api.airtable.com/v0/${process.env.BASE}/Redirects?view=Grid%20view`, {
                 method: 'GET',
                 redirect: 'follow',
                 headers: {

@@ -27,7 +27,8 @@ async function shorten(link, slug = "") {
     const links = await fetch('/api/shorten', {
         method: 'POST',
         body: JSON.stringify({
-            redirect: link
+            redirect: link,
+            splat: slug
         })
     })
         .then(res => res.text())
@@ -37,11 +38,23 @@ async function shorten(link, slug = "") {
 document.getElementById("shortenBtn").addEventListener('click', async () => {
     let url = document.getElementById("shortenUrl").value;
     let short = await shorten(url);
+    short = new URL(short);
+    displayShort(short, url);
+    editLink(url, short)
+})
+
+function editLink(target, slug) {
+    document.getElementById("target").value = target;
+    document.getElementById("slug").value = slug.pathname.replace(/\//,'');
+}
+
+function displayShort(short, url) {
     let displayLink = document.getElementById("displayLink");
     navigator.clipboard.writeText(short)
-    .then(toast("Short link successfully copied to your clipboard!"))
+        .then(toast("Short link successfully copied to your clipboard!"))
     displayLink.textContent = short;
-})
+    populateLink(short.pathname.replace(/\//,''), url);
+}
 
 function toast(message) {
     let toast = document.createElement('p');
@@ -56,28 +69,32 @@ function toast(message) {
 }
 
 function populateLinks(data) {
-    let linkList = document.getElementById("linkList");
-
     Object.keys(data).forEach(splat => {
-        let target = document.createElement('a');
-        target.classList.add('target');
-        target.href = data[splat];
-        target.textContent = data[splat];
-
-        let arrow = document.createElement('i');
-        arrow.classList.add('material-icons-round', 'icon');
-        arrow.textContent = 'arrow_right_alt';
-
-        let slug = document.createElement('p');
-        slug.classList.add('slug')
-        slug.textContent = splat;
-
-        let link = document.createElement('div');
-        link.classList.add('link');
-        link.appendChild(slug);
-        link.appendChild(arrow);
-        link.appendChild(target);
-
-        linkList.appendChild(link);
+        populateLink(splat, data[splat])
     });
+}
+
+function populateLink(splat, destination) {
+    let linkList = document.getElementById("linkList");
+    let target = document.createElement('a');
+    target.classList.add('target');
+    target.href = destination;
+    target.textContent = destination;
+
+    let arrow = document.createElement('i');
+    arrow.classList.add('material-icons-round', 'icon');
+    arrow.textContent = 'arrow_right_alt';
+
+    let slug = document.createElement('p');
+    slug.classList.add('slug')
+    slug.textContent = splat;
+
+    let link = document.createElement('div');
+    link.classList.add('link');
+    link.appendChild(slug);
+    link.appendChild(arrow);
+    link.appendChild(target);
+
+    // Display links in order of most recently created:
+    linkList.insertBefore(link, linkList.childNodes[0] || null);
 }
