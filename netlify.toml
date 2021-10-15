@@ -1,9 +1,15 @@
 [build]
     functions="functions"
+    public="public"
 
 [[redirects]]
     from="/api/*"
     to="/.netlify/functions/:splat"
+    status=200
+    
+[[redirects]]
+    from="/p/*"
+    to="/public/:splat"
     status=200
     
 [[redirects]]

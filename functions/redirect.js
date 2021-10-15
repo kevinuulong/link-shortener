@@ -26,9 +26,8 @@ const handler = async (event) => {
         })
             .then(res => res.json())
             .then(result => result.records[0])
-
         const resultUrl = url.fields.Redirect;
-        console.log(resultUrl);
+
         return {
             statusCode: 200,
             body: html(resultUrl),
@@ -37,7 +36,10 @@ const handler = async (event) => {
             }
         }
     } catch (error) {
-        return { statusCode: 500, body: error.toString() }
+        if (event.headers.cookie) {
+            return { statusCode: 404, body: html('/p/dashboard')/*error.toString()*/ }
+        }
+        return { statusCode: 404, body: html('/p/sign-in')/*error.toString()*/ }
     }
 }
 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Link Shortener</title>
+    <script src="./scripts/dashboard.js" type="module"></script>
+    <link rel="stylesheet" href="./styles/css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined|Material+Icons+Round" rel="stylesheet">
+</head>
+
+<body>
+    <div class="card" id="shorten">
+        <h1>Shorten</h1>
+        <input id="shortenUrl" class="fullWidthInput" type="text" placeholder="Paste or type a URL to shorten here..."
+            autofocus />
+        <div class="btn" id="shortenBtn">Save and Copy</div>
+    </div>
+
+    <div class="card" id="settings">
+        <div id="settingsTabs">
+            <i class="material-icons-round icon settings">link</i>
+            <i class="material-icons-outlined icon settings">analytics</i>
+            <i class="material-icons-round icon settings">share</i>
+        </div>
+        <table id="settingsOptions">
+            <tr class="settingsRow">
+                <td class="optionsLabel">Target</td>
+                <td class="optionsInput"><input type="text" id="target" class="optionsInput" /></td>
+            </tr>
+            <tr class="settingsRow">
+                <td class="optionsLabel">Slug</td>
+                <td class="optionsInput"><input type="text" id="slug" class="optionsInput" /></td>
+            </tr>
+        </table>
+        <div id="urlDisplay">
+            <div id="displayUrl">
+                <p id="displayLink"></p>
+                <div id="displayOptions">
+                    <i class="material-icons-round icon">save</i>
+                    <i class="material-icons-round icon">copy</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" id="links">
+        <div id="listTop">
+            <img id="logo" src="https://kevinuulong.com/images/logos/klColoredCircle.png" />
+            <i class="material-icons-round icon">arrow_drop_down</i>
+            <p id="linkBase">link.kevinuulong.com</p>
+        </div>
+        <div id="linkList">
+        </div>
+    </div>
+</body>
+
+</html>

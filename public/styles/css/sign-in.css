@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+body {
+  background-color: #F0F0F6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #2B2C30;
+  margin: 0;
+}
+
+.card {
+  background-color: #FFFFFF;
+  border-radius: 17px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  overflow: hidden;
+}
+
+#signInCard {
+  padding: 35px;
+}
+
+p, #explainationText {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  width: 350px;
+  color: #2B2C30;
+  margin-bottom: 0;
+  margin-top: 23px;
+}
+
+textarea {
+  background: #F0F0F6;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  padding: 17px;
+  font-size: 16px;
+  resize: none;
+}
+
+#authKey {
+  height: 200px;
+  width: 350px;
+  margin-top: 23px;
+  margin-bottom: 23px;
+}
+
+textarea::-webkit-input-placeholder {
+  color: #2B2C3080;
+}
+
+textarea:-ms-input-placeholder {
+  color: #2B2C3080;
+}
+
+textarea::-ms-input-placeholder {
+  color: #2B2C3080;
+}
+
+textarea::placeholder {
+  color: #2B2C3080;
+}
+
+textarea:focus {
+  -webkit-box-shadow: inset 0px 0px 0px 2px #2F80ED;
+          box-shadow: inset 0px 0px 0px 2px #2F80ED;
+}
+
+.btn {
+  background-color: #2F80ED;
+  color: #F0F0F6;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  width: calc(100% - 35px);
+  padding: 17px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.icon {
+  vertical-align: middle;
+}
+
+#signInIcon {
+  padding-left: 8px;
+}
+
+#helpIcon {
+  color: #2B2C30;
+  font-size: 16px;
+  padding-left: 6px;
+  cursor: help;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  position: absolute;
+  background: #FFFFFF;
+  border: 2px solid #2F80ED;
+  border-radius: 8px;
+  padding: 8px;
+  z-index: 100;
+  -webkit-transform: translate(29px, -17px);
+          transform: translate(29px, -17px);
+  font-size: 12px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.tooltiptext:after, .tooltiptext:before {
+  bottom: 100%;
+  left: 10%;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.tooltiptext:after {
+  border-color: rgba(240, 240, 246, 0);
+  border-bottom-color: #FFFFFF;
+  border-width: 5px;
+  margin-left: -5px;
+}
+
+.tooltiptext:before {
+  border-color: rgba(47, 128, 237, 0);
+  border-bottom-color: #2F80ED;
+  border-width: 8px;
+  margin-left: -8px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+@media (max-width: 600px) {
+  #authKey {
+    height: 200px;
+    width: 280px;
+  }
+  p, #explainationText {
+    width: 280px;
+  }
+  .btn {
+    width: 280px;
+  }
+  .tooltiptext:after, .tooltiptext:before {
+    left: 40.5%;
+  }
+}
+
+@media (max-width: 350px) {
+  #authKey {
+    height: 200px;
+    width: 220px;
+  }
+  p, #explainationText {
+    width: 220px;
+  }
+  .btn {
+    width: 220px;
+  }
+  .tooltiptext:after, .tooltiptext:before {
+    left: 74.5%;
+  }
+}
+/*# sourceMappingURL=sign-in.css.map */
