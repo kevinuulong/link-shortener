@@ -1,14 +1,14 @@
 require('dotenv').config();
 const fetch = require('node-fetch');
 const url = require('url');
-const { nanoid } = require('nanoid');
 
 const handler = async (event) => {
     event.body = JSON.parse(event.body);
     if (await authenticate(event)) {
         try {
-            const short = await fetch(`https://api.airtable.com/v0/${process.env.BASE}/Redirects`, {
-                method: 'POST',
+            console.log(event.body.id)
+            const short = await fetch(`https://api.airtable.com/v0/${process.env.BASE}/Redirects/${event.body.id}`, {
+                method: 'PATCH',
                 redirect: 'follow',
                 headers: {
                     'Content-Type': 'application/json',
@@ -16,7 +16,7 @@ const handler = async (event) => {
                 },
                 body: JSON.stringify({
                     "fields": {
-                        "Splat": event.body.splat ? event.body.splat : nanoid(5),
+                        "Splat": event.body.splat,
                         "Redirect": event.body.redirect
                     }
                 })

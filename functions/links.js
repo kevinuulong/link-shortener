@@ -16,11 +16,13 @@ const handler = async (event) => {
                 .then(res => res.json())
                 .then(result => result.records)
 
-            let links = {};
+            // let links = {};
 
-            records.forEach(record => {
-                links[record.fields.Splat] = record.fields.Redirect;
-            });
+            // records.forEach(record => {
+            //     links[record.fields.Splat] = record.fields.Redirect;
+            // });
+
+            let links = records;
 
             return {
                 statusCode: 200,
