@@ -151,12 +151,14 @@ async function editLinkClick(splat, destination, id) {
     document.getElementById("target").value = destination;
     document.getElementById("slug").value = splat;
     document.getElementById("displayLink").dataset.recId = id;
-    // NOTE: I am pretty sure there is a better way to do this that does not involve making so many requests, but this will do for now
-    document.getElementById("displayLink").textContent = `https://${await root()}/${splat}`;
+    // NOTE: This no longer makes as many API requests but I am still not fully satisfied with it:
+    document.getElementById("displayLink").textContent = `https://${document.getElementById("linkBase").textContent}/${splat}`;
 }
+
+root();
 
 async function root() {
     const root = await fetch('/api/root')
         .then(res => res.text())
-    return root;
+    document.getElementById("linkBase").textContent = root;
 }

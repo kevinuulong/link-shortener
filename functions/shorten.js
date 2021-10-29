@@ -44,7 +44,6 @@ const handler = async (event) => {
 
 async function authenticate(event) {
     let destination = url.parse(event.rawUrl, true);
-    console.log(event.headers,destination);
     const authed = await fetch(`${destination.protocol}//${destination.host}/api/authentication`, {
         headers: {
             cookie: event.headers.cookie
