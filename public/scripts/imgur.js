@@ -1,6 +1,11 @@
+if (window.location.hash) {
+    window.history.replaceState('', '', window.location.href.replace(/#/, '?'))
+    imgurAuth();
+}
 if (!document.cookie.includes('imgurAccessToken')) {
     imgurAuth();
 }
+
 
 
 function imgurAuth() {
@@ -8,7 +13,7 @@ function imgurAuth() {
 
     if (params.has('refresh_token')) {
         // Expires after 5 years (arbitrary deadline):
-        document.cookie += `imgurRefreshToken=${params.get('refresh_token')};path=/;max-age=${60 * 60 * 24 * 30 * 12 * 5}`;
+        document.cookie = `imgurRefreshToken=${params.get('refresh_token')};path=/;max-age=${60 * 60 * 24 * 30 * 12 * 5}`;
     } else {
         fetch('../api/imgur', {
             method: 'POST',
@@ -18,13 +23,14 @@ function imgurAuth() {
         })
             .then(res => res.text())
             .then(res => {
-                window.location.replace(`https://api.imgur.com/oauth2/authorize?client_id=${res}&response_type=token&state=imgur_auth`)
+                window.location.replace(`https://api.imgur.com/oauth2/authorize?client_id=${res}&response_type=token`);
             })
     }
 
     if (params.has('access_token')) {
-        // Expires after a month as per Imgur's requirements:
-        document.cookie += `imgurAccessToken=${params.get('access_token')};path=/;max-age=${60 * 60 * 24 * 30}`;
+        // NOTE: Expires after a month as per Imgur's requirements:
+        // Not very well documented but it seems like Imgur may consider a month 28 days.
+        document.cookie = `imgurAccessToken=${params.get('access_token')};path=/;max-age=${60 * 60 * 24 * 28}`;
     } else {
         fetch('../api/imgur', {
             method: 'POST',
@@ -34,7 +40,7 @@ function imgurAuth() {
         })
             .then(res => res.text())
             .then(res => {
-                document.cookie += `imgurAccessToken=${res};path=/;max-age=${60 * 60 * 24 * 30}`;
+                document.cookie = `imgurAccessToken=${res};path=/;max-age=${60 * 60 * 24 * 28}`;
             })
     }
 }
@@ -48,7 +54,7 @@ document.getElementById('image').addEventListener('change', (e) => {
         method: 'POST',
         body: formData,
         headers: {
-            'Authorization': `Client-ID ${parseCookie(document.cookie, 'imgurAccessToken')}`
+            'Authorization': `Bearer ${parseCookie(document.cookie, 'imgurAccessToken')}`
         }
     })
         .then(res => res.json())
